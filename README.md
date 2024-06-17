@@ -1,6 +1,6 @@
 # API_Flask_ESP32_Bluetooth
 
-Esta API, desenvolvida em Python utilizando o Flask, recebe dados via Bluetooth da ESP32 e os armazena em um banco de dados MySQL local. Foi projetada com o propósito de ser utilizada em um carrinho seguidor de linha para coletar dados durante uma corrida.
+Esta API, desenvolvida em Python utilizando o Flask, recebe dados via Bluetooth da ESP32-WROOM-32D e os armazena em um banco de dados MySQL local. Foi projetada com o propósito de ser utilizada em um carrinho seguidor de linha para coletar dados durante uma corrida.
 
 # Requisitos
 
