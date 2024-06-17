@@ -7,7 +7,6 @@ Esta API, desenvolvida em Python utilizando o Flask, recebe dados via Bluetooth 
 ```bash
 $ pip install Flask Flask-SQLAlchemy 
 $ pip install mysql-connector-python
-$ pip install mysqlclient
 $ pip install requests
 $ pip install pymysql
 $ pip install pyserial
