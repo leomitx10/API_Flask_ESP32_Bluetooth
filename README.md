@@ -10,13 +10,14 @@ $ pip install mysql-connector-python
 $ pip install requests
 $ pip install pymysql
 $ pip install pyserial
+$ pip install cryptography
 
 ```
 
 # Configurando
-Abra o seu Mysql local e crie um banco de dados chamado rastrobotdb2.
+Abra o seu Mysql local e crie um banco de dados chamado teste.
 ```
-CREATE DATABASE rastrobotdb2;
+CREATE DATABASE teste;
 ```
 
 Na linha 19 do arquivo app.py insira o seu login e senha do Mysql.
@@ -35,3 +36,10 @@ porta_serial = serial.Serial('PORTA', 115200)
 ```bash
 $ flask run
 ```
+
+Quando a API estiver em execução, abra este link no navegador: http://127.0.0.1:5000/
+
+O botão START permite que a API receba dados, enquanto o botão STOP faz com que a API pare de receber dados. Eles simulam o início e o fim de uma corrida realizada pelo carrinho.
+
+
+
