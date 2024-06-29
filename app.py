@@ -77,6 +77,7 @@ def verificar_e_inserir_dados_ble():
                 # Marcar o estado anterior como coleta ativa
                 collecting_data_prev = True
 
+               
                 # Verificar se há dados disponíveis na porta serial
                 if porta_serial.in_waiting > 0:
                     # Ler os dados recebidos da porta serial
@@ -89,7 +90,9 @@ def verificar_e_inserir_dados_ble():
                     # Inserir os dados na tabela DADOS_CORRIDA apenas se collecting_data ainda for True
                     if collecting_data:
                         try:
-                            tempoColeta = datetime.strptime(dados_ble_json["tempoColeta"], '%Y-%m-%d %H:%M:%S')
+                            # Usar a data e hora atuais do sistema
+                            tempoColeta = datetime.now()
+                            
                             dados = DADOS_CORRIDA(
                                 distancia=dados_ble_json["distancia"], 
                                 velocidade=dados_ble_json["velocidade"],
@@ -104,6 +107,7 @@ def verificar_e_inserir_dados_ble():
                         
                         except Exception as e:
                             print('Erro ao inserir dados na tabela DADOS_CORRIDA:', e)
+
             
             else:
                 # Marcar o estado anterior como coleta inativa
