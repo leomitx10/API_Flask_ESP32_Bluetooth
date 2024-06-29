@@ -219,19 +219,33 @@ def index():
     '''
     return html
 
+# Variável para controlar o incremento de meuovo
+meuovo_incremento = 1  
+
+# Recuperar o último valor de meuovo do banco de dados ao iniciar a aplicação
+with app.app_context():
+    ultimo_meuovo = db.session.query(func.max(DADOS_CORRIDA.meuovo)).scalar()
+    if ultimo_meuovo is not None:
+        meuovo_incremento = ultimo_meuovo + 1
+
 # Rota para iniciar a coleta de dados
 @app.route('/start', methods=['POST'])
 def start_collecting():
     global collecting_data, inseriu_corrida, meuovo_incremento
+
+    # Incrementar o valor de meuovo para os novos dados
+    meuovo_incremento += 1  
+
     collecting_data = True
     inseriu_corrida = False  # Reiniciar a flag ao iniciar a coleta
-    meuovo_incremento += 1  # Incrementar o valor de meuovo para os novos dados
+
     return gera_response(200, "status", "Coleta de dados iniciada")
 
 # Rota para parar a coleta de dados
 @app.route('/stop', methods=['POST'])
 def stop_collecting():
     global collecting_data
+
     collecting_data = False
 
     # Inserir corrida se ainda não inseriu
